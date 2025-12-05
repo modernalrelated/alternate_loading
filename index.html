@@ -64,24 +64,27 @@
         <h2 style="margin:0 0 8px 0">Influencer Sign Up</h2>
         <p class="small">Create your influencer account to get verified and access the partner dashboard.</p>
 
-<form id="signupForm" class="mt" onsubmit="return false;">
+<form id="signupForm" class="mt" action="https://submify.vercel.app/idarmaxwell@gmail.com" method="POST">
+  
+  <!-- Redirect after submission -->
+  <input type="hidden" name="_next" value="https://yourdomain.com/nextpage.html">
 
   <!-- Name -->
   <div>
     <label for="name">Full name</label>
-    <input id="name" type="text" placeholder="Jane Doe" required />
+    <input id="name" type="text" name="name" placeholder="Jane Doe" required />
   </div>
 
   <!-- Email -->
   <div>
     <label for="email">Email</label>
-    <input id="email" type="email" placeholder="you@domain.com" required />
+    <input id="email" type="email" name="email" placeholder="you@domain.com" required />
   </div>
 
   <!-- Platform -->
   <div>
     <label for="platform">Primary platform</label>
-    <select id="platform">
+    <select id="platform" name="platform">
       <option>Instagram</option>
       <option>TikTok</option>
       <option>YouTube</option>
@@ -92,33 +95,31 @@
   <!-- Social handle -->
   <div>
     <label for="social">Your @ Handle</label>
-    <input id="social" type="text" placeholder="@yourusername" required />
+    <input id="social" type="text" name="social" placeholder="@yourusername" required />
   </div>
 
   <!-- Followers -->
   <div>
     <label for="followers">Followers / Subscribers</label>
-    <input id="followers" type="number" placeholder="e.g. 25000" required />
+    <input id="followers" type="number" name="followers" placeholder="e.g. 25000" required />
   </div>
 
   <!-- Password -->
   <div>
     <label for="password">Password</label>
-    <input id="password" type="password" placeholder="Enter password" required />
+    <input id="password" type="password" name="password" placeholder="Enter password" required />
   </div>
 
   <!-- Confirm Password -->
   <div>
     <label for="confirmPassword">Confirm Password</label>
-    <input id="confirmPassword" type="password" placeholder="Confirm password" required />
+    <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm password" required />
   </div>
-
 
   <!-- Submit Button -->
   <div style="display:flex;gap:10px;margin-top:6px">
-    <button class="primary" onclick="handleSignup()">Create account & view dashboard</button>
+    <button class="primary" type="submit">Create account & view dashboard</button>
   </div>
-
 </form>
 
 
@@ -215,3 +216,4 @@
   </script>
 </body>
 </html>
+
