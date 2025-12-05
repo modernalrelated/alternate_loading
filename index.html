@@ -17,32 +17,24 @@
 
     .grid{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-top:28px}
 
-    /* Card */
     .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
 
-    /* Signup form */
     form{display:flex;flex-direction:column;gap:12px}
     label{font-size:13px;color:#374151}
     input,select,textarea{padding:10px 12px;border-radius:8px;border:1px solid #e6e6ee;font-size:14px}
     button.primary{background:var(--accent);color:white;border:none;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
-    button.ghost{background:transparent;border:1px solid #ddd;padding:9px;border-radius:8px;cursor:pointer}
 
-    /* Products list */
-    .products{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .products{display:grid;grid-template-columns:1fr;gap:14px}
     .product{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;border:1px solid #f0f0f6}
     .thumb{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#fff,#f7f7fb);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
     .pmeta h4{margin:0;font-size:15px}
     .pmeta p{margin:4px 0 0;color:var(--muted);font-size:13px}
-    .cta{margin-left:auto}
-
-    /* Salary & Programs */
     .programs{display:flex;flex-direction:column;gap:10px}
     .program{border-left:4px solid var(--accent);padding:12px;background:#fff;border-radius:8px}
     .small{font-size:13px;color:var(--muted)}
 
     footer{margin-top:20px;padding:18px 0;color:var(--muted);font-size:13px}
-
-    @media (max-width:980px){.grid{grid-template-columns:1fr}.products{grid-template-columns:1fr}.container{padding:0 18px}}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}.container{padding:0 18px}}
   </style>
 </head>
 <body>
@@ -64,27 +56,24 @@
         <h2 style="margin:0 0 8px 0">Influencer Sign Up</h2>
         <p class="small">Create your influencer account to get verified and access the partner dashboard.</p>
 
-<form id="signupForm" class="mt" action="" method="POST">
-  
-  <!-- Redirect after submission -->
-  <input type="hidden" name="_next" value="https://yourdomain.com/nextpage.html">
+<form id="signupForm">
 
   <!-- Name -->
   <div>
     <label for="name">Full name</label>
-    <input id="name" type="text" name="name" placeholder="Jane Doe" required />
+    <input id="name" type="text" required />
   </div>
 
   <!-- Email -->
   <div>
     <label for="email">Email</label>
-    <input id="email" type="email" name="email" placeholder="you@domain.com" required />
+    <input id="email" type="email" required />
   </div>
 
   <!-- Platform -->
   <div>
     <label for="platform">Primary platform</label>
-    <select id="platform" name="platform">
+    <select id="platform">
       <option>Instagram</option>
       <option>TikTok</option>
       <option>YouTube</option>
@@ -95,41 +84,40 @@
   <!-- Social handle -->
   <div>
     <label for="social">Your @ Handle</label>
-    <input id="social" type="text" name="social" placeholder="@yourusername" required />
+    <input id="social" type="text" required />
   </div>
 
   <!-- Followers -->
   <div>
     <label for="followers">Followers / Subscribers</label>
-    <input id="followers" type="number" name="followers" placeholder="e.g. 25000" required />
+    <input id="followers" type="number" required />
   </div>
 
   <!-- Password -->
   <div>
     <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Enter password" required />
+    <input id="password" type="password" required />
   </div>
 
   <!-- Confirm Password -->
   <div>
     <label for="confirmPassword">Confirm Password</label>
-    <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm password" required />
+    <input id="confirmPassword" type="password" required />
   </div>
 
-  <!-- Submit Button -->
   <div style="display:flex;gap:10px;margin-top:6px">
     <button class="primary" type="submit">Create account & view dashboard</button>
   </div>
-</form>
 
+</form>
 
         <hr style="margin:18px 0;border:none;border-top:1px solid #f0f0f6" />
 
         <h3 style="margin:0 0 6px 0">Quick facts</h3>
         <ul style="margin:0 0 0 18px;color:var(--muted)">
-          <li>Apply once — get verified within 3 business days (standard).</li>
-          <li>Access exclusive product drops and promo codes for your audience.</li>
-          <li>Flexible campaigns: try-before-you-promote, flat-fee, and rev-share options.</li>
+          <li>Apply once — get verified within 3 business days.</li>
+          <li>Access exclusive product drops + promo codes.</li>
+          <li>Flexible campaigns: try-before-you-promote, flat-fee, rev-share.</li>
         </ul>
       </section>
 
@@ -139,26 +127,26 @@
           <div class="programs">
             <div class="program">
               <strong>Flat-fee Campaigns</strong>
-              <p class="small">Fixed payment per post/video. Typical ranges: micro (under 50k): $150–$800, mid (50k–500k): $800–$5k, macro (500k+): custom.</p>
+              <p class="small">Micro: $150–$800, Mid: $800–$5k, Macro: custom.</p>
             </div>
             <div class="program">
-              <strong>Performance / Rev-share</strong>
-              <p class="small">Earn 8–20% commission on sales generated through your unique code or affiliate link. Higher tiers unlock better commission rates.</p>
+              <strong>Rev-share</strong>
+              <p class="small">Earn 8–20% on tracked affiliate sales.</p>
             </div>
             <div class="program">
-              <strong>Gift & Try Programs</strong>
-              <p class="small">Receive PR packages and early access to product launches. Suitable for content-first creators and reviews.</p>
+              <strong>Gift & Try</strong>
+              <p class="small">Receive PR boxes and early launches.</p>
             </div>
             <div class="program">
-              <strong>Long-term Brand Ambassadors</strong>
-              <p class="small">Multi-month contracts with guaranteed monthly retainer + performance bonuses. Negotiated case-by-case.</p>
+              <strong>Ambassadors</strong>
+              <p class="small">Monthly retainers + bonuses.</p>
             </div>
           </div>
         </div>
 
         <div class="card">
 <h3 style="margin:0 0 8px 0">Featured products</h3>
-<div class="products" id="productList" style="grid-template-columns:1fr; gap:14px">
+<div class="products">
 
   <div class="product">
     <div class="thumb">
@@ -166,7 +154,7 @@
     </div>
     <div class="pmeta">
       <h4>NOURISHING LASH OIL</h4>
-      <p>Plant-based lash & brow treatment that strengthens and conditions.</p>
+      <p>Strengthens and conditions lashes & brows.</p>
     </div>
   </div>
 
@@ -176,18 +164,14 @@
     </div>
     <div class="pmeta">
       <h4>RADIANCE FACIAL OIL</h4>
-      <p>Lightweight oil blended with vitamins to boost natural radiance.</p>
+      <p>Lightweight vitamin oil for glowing skin.</p>
     </div>
   </div>
 
 </div>
-
         </div>
       </aside>
     </div>
-
-    <!-- Dashboard preview (hidden until signup) -->
-    
 
     <footer>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
@@ -197,24 +181,32 @@
     </footer>
   </main>
 
-  <script>
-    function fillDemo(){
-      document.getElementById('name').value = 'Asha Rivera';
-      document.getElementById('email').value = 'asha@example.com';
-      document.getElementById('platform').value = 'Instagram';
-      document.getElementById('followers').value = 125000;
-      document.getElementById('bio').value = 'Beauty & lifestyle creator — audience primarily 18-34, based in LATAM.';
-    }
+<script>
+// Submit to Google Apps Script backend
+document.getElementById("signupForm").addEventListener("submit", async function(e){
+  e.preventDefault();
 
-    function handleSignup(){
-      window.location.href = 'Dashboard.html';
-    }
+  const endpoint = "https://script.google.com/macros/s/AKfycbyuTmFp1GiJKLI5IfP1uxt0fwhZ46Ca7JMl5PBAWkCFJ54aGULJxLvWSdEAZ2qRUihNnA/exec";
 
-    function requestSample(product){
-      alert('Sample request for: ' + product + '. We will contact you with shipping details.');
-    }
-  </script>
+  const payload = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    platform: document.getElementById('platform').value,
+    social: document.getElementById('social').value,
+    followers: document.getElementById('followers').value,
+    password: document.getElementById('password').value,
+    confirmPassword: document.getElementById('confirmPassword').value
+  };
+
+  await fetch(endpoint, {
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" }
+  });
+
+  window.location.href = "Dashboard.html"; // redirect
+});
+</script>
+
 </body>
 </html>
-
-
