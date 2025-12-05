@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perl Cosmetics — Actions</title>
+  <style>
+    :root{--accent:#c2185b;--muted:#6b7280;--bg:#f7f7fb;--card:#ffffff}
+    body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:#111}
+    header{background:#fff;padding:16px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:10}
+    header .row{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
+    .logo{font-weight:700;font-size:20px;color:var(--accent)}
+    .user{color:var(--muted);font-size:14px}
+
+    .container{max-width:1200px;margin:0 auto;padding:22px}
+    .grid{display:grid;grid-template-columns:260px 1fr;gap:22px}
+
+    /* Sidebar */
+    .sidebar{background:#fff;border-radius:12px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,0.06);height:fit-content;}
+    .sidebar a{display:block;padding:10px 8px;border-radius:8px;color:#444;font-size:15px;cursor:pointer;margin-bottom:6px;text-decoration:none}
+    .sidebar a.active{background:var(--accent);color:white;font-weight:600}
+    .sidebar a:hover{background:#ffe4ef}
+
+    /* Card */
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin-bottom:20px}
+
+    .action-box{
+      border-left:4px solid var(--accent);
+      background:#fff4fa;
+      padding:14px;
+      border-radius:8px;
+      margin-bottom:16px;
+      border:1px solid #f6d6e3;
+    }
+
+    .btn{
+      background:var(--accent);
+      border:none;
+      color:white;
+      padding:12px 18px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:15px;
+      transition:0.2s;
+    }
+
+    .btn:hover{background:#a8134c}
+
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="logo">Perl Cosmetics</div>
+      <div class="user">Logged in</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="campaigns.html">My Campaigns</a>
+        <a href="products.html">Products</a>
+        <a href="earnings.html">Earnings</a>
+        <a href="actions.html" class="active">Actions</a>
+        <a href="settings.html">Settings</a>
+      </aside>
+
+      <!-- Main Content -->
+      <section>
+        <div class="card">
+          <h2 style="margin-top:0;">Pending Actions</h2>
+          <p style="color:var(--muted);margin-top:4px;">
+            Complete the steps below to activate your influencer account.
+          </p>
+
+          <!-- Action Item -->
+          <div class="action-box">
+            <strong>Campaign Manager Interview — REQUIRED</strong>
+            <p style="margin:6px 0 10px 0;color:var(--muted);font-size:14px;">
+              Your account is not fully activated yet. Please call the manager to complete your onboarding interview.
+              Once approved, your $200 starter bonus and campaigns will unlock.
+            </p>
+
+            <button class="btn" onclick="callManager()">
+              📞 Call Manager
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    function callManager() {
+      alert("Calling Manager...\n\nYour Campaign Manager will speak with you shortly to verify your details and activate your account.");
+    }
+  </script>
+
+</body>
+</html>

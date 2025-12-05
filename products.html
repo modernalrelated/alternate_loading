@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perl Cosmetics — Products</title>
+  <style>
+    :root{--accent:#c2185b;--muted:#6b7280;--bg:#f7f7fb;--card:#ffffff}
+    body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:#111}
+    header{background:#fff;padding:16px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:10}
+    header .row{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
+    .logo{font-weight:700;font-size:20px;color:var(--accent)}
+    .user{color:var(--muted);font-size:14px}
+
+    .container{max-width:1200px;margin:0 auto;padding:22px}
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+    .product{background:#fff;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+    .product img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .pmeta h4{margin:0;font-size:18px}
+    .pmeta p{margin:4px 0 0 0;color:var(--muted);font-size:14px}
+    .pmeta .price{margin-top:6px;font-weight:600;color:var(--accent)}
+    .cta button{margin-top:auto;padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:white;cursor:pointer;font-size:15px}
+    a.back{color:var(--accent);font-size:14px;text-decoration:none;margin-bottom:14px;display:inline-block}
+
+    @media(max-width:600px){.products{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="logo">Perl Cosmetics</div>
+      <div class="user">Logged in</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <a href="Dashboard.html" class="back">← Back to Dashboard</a>
+
+    <h2 style="margin-bottom:16px">Available Products</h2>
+    <div class="products">
+
+      <!-- 1: Nourishing Lash Oil -->
+      <div class="product">
+        <img src="product1.png" alt="Nourishing Lash Oil">
+        <div class="pmeta">
+          <h4>NOURISHING LASH OIL</h4>
+          <p>Plant-based lash & brow treatment that nourishes, strengthens and conditions lashes for healthier growth.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('NOURISHING LASH OIL')">Request Sample</button>
+      </div>
+
+      <!-- 2: British Pink Clay Mask & Illuminating Mask Oil Set -->
+      <div class="product">
+        <img src="product2.png" alt="British Pink Clay Mask & Illuminating Mask Oil Set">
+        <div class="pmeta">
+          <h4>BRITISH PINK CLAY MASK & ILLUMINATING MASK OIL SET</h4>
+          <p>Detoxifying pink clay mask paired with a nourishing illuminating oil to restore balance and glow.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('BRITISH PINK CLAY MASK & ILLUMINATING MASK OIL SET')">Request Sample</button>
+      </div>
+
+      <!-- 3: Balancing Cleansing Balm -->
+      <div class="product">
+        <img src="product3.png" alt="Balancing Cleansing Balm">
+        <div class="pmeta">
+          <h4>BALANCING CLEANSING BALM</h4>
+          <p>Gentle balm cleanser that removes makeup and impurities while preserving the skin's moisture barrier.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('BALANCING CLEANSING BALM')">Request Sample</button>
+      </div>
+
+      <!-- 4: Radiance Facial Oil -->
+      <div class="product">
+        <img src="product4.png" alt="Radiance Facial Oil">
+        <div class="pmeta">
+          <h4>RADIANCE FACIAL OIL</h4>
+          <p>Lightweight facial oil blended with vitamins and botanical extracts to boost natural radiance and hydration.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('RADIANCE FACIAL OIL')">Request Sample</button>
+      </div>
+
+      <!-- 5: Stimulating Hair Oil -->
+      <div class="product">
+        <img src="product5.png" alt="Stimulating Hair Oil">
+        <div class="pmeta">
+          <h4>STIMULATING HAIR OIL</h4>
+          <p>Nourishing hair oil formulated to strengthen strands, improve shine, and support a healthier scalp.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('STIMULATING HAIR OIL')">Request Sample</button>
+      </div>
+
+      <!-- 6: Hydrating Lip Oil -->
+      <div class="product">
+        <img src="product6.png" alt="Hydrating Lip Oil">
+        <div class="pmeta">
+          <h4>HYDRATING LIP OIL</h4>
+          <p>Glossy, non-sticky lip oil that delivers long-lasting hydration and a subtle shine.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('HYDRATING LIP OIL')">Request Sample</button>
+      </div>
+
+      <!-- 7: French Green Clay Mask & Calming Mask Oil Set -->
+      <div class="product">
+        <img src="product7.png" alt="French Green Clay Mask & Calming Mask Oil Set">
+        <div class="pmeta">
+          <h4>FRENCH GREEN CLAY MASK & CALMING MASK OIL SET</h4>
+          <p>Purifying green clay mask with a calming oil to soothe, detox and rebalance troubled skin.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('FRENCH GREEN CLAY MASK & CALMING MASK OIL SET')">Request Sample</button>
+      </div>
+
+      <!-- 8: French Green Clay Mask - Refill -->
+      <div class="product">
+        <img src="product8.png" alt="French Green Clay Mask - Refill">
+        <div class="pmeta">
+          <h4>FRENCH GREEN CLAY MASK - REFILL</h4>
+          <p>Eco refill pouch of our French green clay mask for continued deep-cleansing and pore care.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('FRENCH GREEN CLAY MASK - REFILL')">Request Sample</button>
+      </div>
+
+      <!-- 9: British Pink Clay Mask - Refill -->
+      <div class="product">
+        <img src="product9.png" alt="British Pink Clay Mask - Refill">
+        <div class="pmeta">
+          <h4>BRITISH PINK CLAY MASK - REFILL</h4>
+          <p>Refill pouch of the gentle British pink clay mask for continued detoxifying skincare rituals.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('BRITISH PINK CLAY MASK - REFILL')">Request Sample</button>
+      </div>
+
+      <!-- 10: Illuminating Mask Oil - Refill -->
+      <div class="product">
+        <img src="product10.png" alt="Illuminating Mask Oil - Refill">
+        <div class="pmeta">
+          <h4>ILLUMINATING MASK OIL - REFILL</h4>
+          <p>Eco refill of the illuminating mask oil that boosts glow and nourishment in your mask routine.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('ILLUMINATING MASK OIL - REFILL')">Request Sample</button>
+      </div>
+
+      <!-- 11: Waffle Cosmetics Bag -->
+      <div class="product">
+        <img src="product11.png" alt="Waffle Cosmetics Bag">
+        <div class="pmeta">
+          <h4>WAFFLE COSMETICS BAG</h4>
+          <p>Stylish and practical cosmetics bag with a textured waffle finish — perfect for travel and storage.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('WAFFLE COSMETICS BAG')">Request Sample</button>
+      </div>
+
+      <!-- 12: Bamboo Cleansing Pads -->
+      <div class="product">
+        <img src="product12.png" alt="Bamboo Cleansing Pads">
+        <div class="pmeta">
+          <h4>BAMBOO CLEANSING PADS</h4>
+          <p>Reusable bamboo facial pads for gentle cleansing and eco-friendly makeup removal.</p>
+          <div class="price">&nbsp;</div>
+        </div>
+        <button onclick="requestSample('BAMBOO CLEANSING PADS')">Request Sample</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function requestSample(product){
+      alert('Your request for ' + product + ' has been submitted. Our team will contact you shortly.');
+    }
+  </script>
+</body>
+</html>

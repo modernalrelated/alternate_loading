@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Campaigns – Perl Cosmetics</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #555;
+      font-size: 16px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    header a:hover {
+      background: #eee;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    /* Campaign Card */
+    .campaign-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+      border-left: 5px solid #ddd;
+      transition: 0.2s ease;
+    }
+
+    .campaign-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .campaign-card h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .campaign-info {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    .active {
+      background: #d4ffe1;
+      color: #0e7a34;
+    }
+
+    .pending {
+      background: #fff3cd;
+      color: #a06c00;
+    }
+
+    .completed {
+      background: #d9e2ff;
+      color: #3047a5;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 18px;
+      background: #000;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      .campaign-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>My Campaigns</h1>
+  <a href="Dashboard.html">Back to Dashboard</a>
+</header>
+
+<div class="container">
+  <h2>Active & Past Campaigns</h2>
+
+  <!-- Campaign 1 -->
+  <div class="campaign-card">
+    <h3>Perl Glow Serum Launch</h3>
+    <p class="campaign-info">
+      Create a 30-second TikTok or Reel featuring your morning routine with the Glow Serum. 
+      Tag @PerlCosmetics and use hashtag <strong>#PerlGlow</strong>.
+    </p>
+    <span class="status pending">Pending Approval</span><br>
+    <a class="btn" href="actions.html">View Requirements</a>
+  </div>
+  
+  <!-- Campaign 2 -->
+  <div class="campaign-card">
+    <h3>Hydra Matte Lip Oil Campaign</h3>
+    <p class="campaign-info">
+      Share a before/after lip hydration transformation and promote your unique discount code.
+    </p>
+    <span class="status pending">Pending Approval</span><br>
+    <a class="btn" href="actions.html">View Requirements</a>
+  </div>
+  
+  <!-- Campaign 3 -->
+  <div class="campaign-card">
+    <h3>Perl Skincare Starter Kit Promo</h3>
+    <p class="campaign-info">
+      Create a skincare routine post or video showcasing improvements after using the Starter Kit. 
+      Promote your personalized discount code.
+    </p>
+    <span class="status pending">Pending Approval</span><br>
+    <a class="btn" href="actions.html">View Requirements</a>
+  </div>
+
+</div>
+
+</body>
+</html>

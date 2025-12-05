@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perl Cosmetics — Influencer Dashboard</title>
+  <style>
+    :root{--accent:#c2185b;--muted:#6b7280;--bg:#f7f7fb;--card:#ffffff}
+    body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:#111}
+    header{background:#fff;padding:16px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:10}
+    header .row{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
+    .logo{font-weight:700;font-size:20px;color:var(--accent)}
+    .user{color:var(--muted);font-size:14px}
+
+    .container{max-width:1200px;margin:0 auto;padding:22px}
+    .grid{display:grid;grid-template-columns:260px 1fr;gap:22px}
+
+    /* Sidebar */
+    .sidebar{background:#fff;border-radius:12px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,0.06);height:fit-content;}
+    .sidebar a{display:block;padding:10px 8px;border-radius:8px;color:#444;font-size:15px;cursor:pointer;margin-bottom:6px;text-decoration:none}
+    .sidebar a.active{background:var(--accent);color:white;font-weight:600}
+    .sidebar a:hover{background:#ffe4ef}
+
+    /* Cards */
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin-bottom:20px}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+    .stat{padding:14px;border-radius:10px;background:#fff;border:1px solid #f0f0f6}
+    .stat strong{font-size:18px}
+    .stat .label{font-size:13px;color:var(--muted)}
+
+    .campaigns ul{margin-left:18px;color:var(--muted)}
+
+    .products{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
+    .product{border:1px solid #f0f0f6;border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center}
+    .thumb{width:60px;height:60px;border-radius:8px;background:linear-gradient(135deg,#fff,#f7f7fb);display:flex;justify-content:center;align-items:center;color:var(--muted);font-weight:700}
+
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.products{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="logo">Perl Cosmetics</div>
+      <div class="user">Logged in</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="Dashboard.html" class="active">Dashboard</a>
+        <a href="campaigns.html">My Campaigns</a>
+        <a href="products.html">Products</a>
+        <a href="earnings.html">Earnings</a>
+		<a href="actions.html">Actions</a>
+        <a href="settings.html">Settings</a>
+      </aside>
+
+      <!-- Main Content -->
+      <section>
+        <div class="card">
+          <h2 style="margin:0 0 8px 0">Welcome to your Dashboard</h2>
+          <p class="small" style="color:var(--muted)">Track your campaigns, performance, and product opportunities.</p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong id="reach">0</strong>
+              <div class="label">Total Reach</div>
+            </div>
+            <div class="stat">
+              <strong id="clicks">0</strong>
+              <div class="label">Link Clicks</div>
+            </div>
+            <div class="stat">
+              <strong id="sales">0</strong>
+              <div class="label">Sales</div>
+            </div>
+          </div>
+        </div>
+		
+<div class="card" style="border-left: 4px solid var(--accent);">
+  <h3 style="margin:0 0 6px 0;">Account Status</h3>
+  <p style="color:var(--muted); margin:0 0 8px 0;">
+    Your account is almost ready! Please complete your Campaign Manager Interview to activate your influencer profile.
+  </p>
+
+  <div style="background:#fff4fa;padding:12px;border-radius:8px;border:1px solid #f8d7e5;margin-bottom:10px;">
+    <strong>Starter Bonus: $200</strong><br>
+    <span style="font-size:13px;color:var(--muted);">
+      Pending — unlocked after manager approval.
+    </span>
+  </div>
+
+  <a href="actions.html" style="color:var(--accent);font-weight:600;text-decoration:none;">
+    View details →
+  </a>
+</div>
+
+
+<div class="card campaigns">
+  <h3 style="margin:0 0 8px 0">Active Campaigns</h3>
+
+  <p style="color:var(--muted);margin:0 0 8px 0;">
+    You don’t have any active campaigns yet.
+  </p>
+
+  <p style="margin:6px 0 0 0;">
+    <a href="campaigns.html" style="color:var(--accent);text-decoration:none;font-weight:600;">
+      View pending campaigns →
+    </a>
+  </p>
+</div>
+
+
+        <div class="card">
+  <h3 style="margin:0 0 8px 0">Recommended Products</h3>
+  <div class="products">
+
+    <div class="product">
+      <img src="product6.png" class="thumb" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">
+      <div>
+        <strong>Hydrating Lip Oil</strong><br>
+        <span style="font-size:13px;color:var(--muted)">Perfect for lip hydration before/after content</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="product4.png" class="thumb" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">
+      <div>
+        <strong>Radiance Facial Oil</strong><br>
+        <span style="font-size:13px;color:var(--muted)">Ideal for glow routines & aesthetic skincare shots</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="product3.png" class="thumb" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">
+      <div>
+        <strong>Balancing Cleansing Balm</strong><br>
+        <span style="font-size:13px;color:var(--muted)">Loved for nighttime routines & cleansing content</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="product2.png" class="thumb" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">
+      <div>
+        <strong>British Pink Clay Mask Set</strong><br>
+        <span style="font-size:13px;color:var(--muted)">Great for texture videos & mask-routine posts</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
